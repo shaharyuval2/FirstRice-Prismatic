@@ -1,0 +1,193 @@
+/* --- GLOBAL RESET --- */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* --- MODULE STYLES --- */
+
+/* 1. Launcher: Purple (#614d93) */
+#custom-launch_icon {
+    background-color: #0b0617;
+    color: #614d93;           /* Text matches border */
+    border: 2px solid #614d93;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 15px;      /* Extra padding for the icon */
+}
+
+/* 2. Workspaces: Deep Pink (#891964) */
+#workspaces {
+    background-color: #13020d;
+    border: 2px solid #891964;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #888888;
+}
+
+#workspaces button.active {
+    color: #891964; /* Active dot matches the border */
+}
+
+#workspaces button:hover {
+    color: #ffffff;
+}
+
+/* 3. Window Title: Deep Pink (#891964) - Matches workspaces to keep left side unified */
+#window {
+    background-color: #170007;
+    color: #c50035;
+    border: 2px solid #c50035;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* 4. Center Clock: White (As requested) */
+#clock {
+    background-color: #111111;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* 5. Hardware Group (CPU/RAM): Orange (#c95d2e) */
+#hardware {
+    background-color: #150904;
+    color: #c95d2e;           /* Colored text */
+    border: 2px solid #cd5d2e;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* 6. Network: Gold (#cda436) */
+#network {
+    background-color: #151104;
+    color: #cda436;
+    border: 2px solid #cda436;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* 7. Audio & Battery: Green (#64a149) */
+#pulseaudio, #battery {
+    background-color: #0d1509;
+    color: #64a149;
+    border: 2px solid #64a149;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* 8. Power Button: Red (Standard warning color) */
+#custom-power {
+    background-color: #1d0404;
+    color: #f74949;
+    border: 3px solid #bd1d1d;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding-left: 11px;
+    padding-right: 15px;
+}
+
+/* --- INNER MODULE COLORS --- */
+
+#cpu {
+    color: #c95d2e;
+    padding-right: 15px;  /* Add space after CPU */
+}
+
+#memory {
+    color: #c95d2e;
+    padding-right: 15px;  /* Add space after Memory */
+}
+
+#temperature {
+    color: #c95d2e;
+    /* No padding needed on the right since it's the last item */
+}
+
+/* Battery Specifics */
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #64a149; /* Invert colors when charging for visibility */
+}
+
+#battery.critical:not(.charging) {
+    color: #ff0045;
+    border: 2px solid #ff0045;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #ffffff;
+    }
+}
+
+/* --- TOOLTIP / CALENDAR STYLING --- */
+
+tooltip {
+    background: #000000;        /* Pitch Black Background */
+    border: 2px solid #ffffff;   /* White Border to match the Clock module */
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #e0e0e0;              /* Light Grey text for better readability */
+    padding-left: 10px;          /* Give the text some room to breathe */
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
